@@ -34,7 +34,7 @@ const imageLoaded = new Array(TOTAL_FRAMES + 1).fill(false);
 let loadedCount = 0;
 
 let currentFrameFloat = 1;
-let currentRenderedFrame = 1;
+let currentRenderedFrame = 0;
 let targetFrame = 1;
 let isAudioEnabled = false;
 let audioCtx = null;
@@ -93,7 +93,7 @@ function updateLoaderUI() {
     loaderOverlay.classList.add('ready');
     setTimeout(() => {
       loaderOverlay.classList.add('hidden');
-      renderFrame(1);
+      renderFrame(1, true);
     }, 250);
   }
 }
@@ -102,7 +102,7 @@ async function loadAllFrames() {
   const priorityIndices = [1, 2, 3, 4, 5, 25, 52, 75, 103, 130, 155, 180, 206];
   await Promise.all(priorityIndices.map(idx => preloadImage(idx)));
 
-  if (images[1]) renderFrame(1);
+  if (images[1]) renderFrame(1, true);
 
   const remaining = [];
   for (let i = 1; i <= TOTAL_FRAMES; i++) {
