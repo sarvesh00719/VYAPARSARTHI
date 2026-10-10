@@ -40,9 +40,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  overflow-x: hidden;
-}
+
 
 /* Background Ambient Glows & Spotlight */
 .ambient-glow {
@@ -148,8 +146,8 @@ body {
    ======================================================== */
 .scroll-experience {
   position: relative;
-  /* Proper height for 206 frames of scrolling */
-  height: 500vh;
+  /* Compact scrolling animation height */
+  height: 200vh;
   width: 100%;
 }
 

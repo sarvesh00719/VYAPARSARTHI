@@ -18,7 +18,7 @@ const loaderOverlay = document.getElementById('loaderOverlay');
 
 const mainCanvas = document.getElementById('mainCanvas');
 const ambientCanvas = document.getElementById('ambientCanvas');
-const mainCtx = mainCanvas.getContext('2d', { alpha: false });
+const mainCtx = mainCanvas.getContext('2d');
 const ambientCtx = ambientCanvas.getContext('2d');
 
 const scrollTrack = document.getElementById('scrollTrack');
