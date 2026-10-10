@@ -827,40 +827,288 @@
         </div>
       </section>
 
-      <!-- 6. INVESTOR UNIT ECONOMICS & PILOT SCALING -->
-      <section class="w-full bg-surface-container-low py-8 border-t border-border-subtle" id="investor-economics">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col gap-6">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
-            <div>
-              <div class="text-[11px] uppercase font-bold text-saffron-primary tracking-wider font-label-caps">Slide 5 • Venture Scalability</div>
-              <h2 class="font-headline-lg font-bold text-2xl sm:text-3xl text-indigo-midnight tracking-tight">Unit Economics &amp; Pilot Scaling</h2>
+      <!-- 6. AI COSTS & UNIT ECONOMICS SCALING -->
+      <section class="w-full bg-surface-container-low py-10 border-t border-border-subtle" id="investor-economics">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col gap-10">
+          
+          <!-- PART 1: AI COSTS -->
+          <div class="flex flex-col gap-5">
+            <h2 class="font-headline-lg font-bold text-2xl sm:text-3xl text-indigo-midnight tracking-tight">
+              AI costs ₹52 a shop a month. Voice is 60%, so that is where we cut.
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+              <!-- Left: Donut Chart -->
+              <div class="lg:col-span-5 bg-card-pure rounded-2xl border-2 border-indigo-midnight p-5 flex flex-col gap-6 shadow-sm">
+                <div>
+                  <h3 class="font-bold text-indigo-midnight text-sm">Where the ₹52 goes</h3>
+                  <p class="text-xs text-on-surface-variant">AI and cloud cost per shop per month</p>
+                </div>
+                
+                <div class="flex justify-center items-center py-4 relative">
+                  <!-- CSS Donut Chart -->
+                  <div class="w-48 h-48 rounded-full relative" style="background: conic-gradient(
+                    #0F172A 0% 60%, 
+                    #10B981 60% 71%, 
+                    #F97316 71% 80%, 
+                    #64748B 80% 87%, 
+                    #34D399 87% 100%
+                  );">
+                    <!-- Inner hole -->
+                    <div class="absolute inset-0 m-auto w-24 h-24 bg-card-pure rounded-full flex flex-col items-center justify-center shadow-inner">
+                      <span class="font-bold text-2xl text-indigo-midnight leading-none">₹52</span>
+                      <span class="text-[9px] text-on-surface-variant uppercase tracking-wide mt-1">per shop / mo</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-2.5 text-xs">
+                  <div class="flex justify-between items-center"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-indigo-midnight"></span><span class="text-indigo-midnight font-medium">Speech-to-text (voice)</span></div><span class="font-bold text-indigo-midnight">₹31.18</span></div>
+                  <div class="flex justify-between items-center"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-emerald-credit"></span><span class="text-indigo-midnight font-medium">LLM intent parsing</span></div><span class="font-bold text-indigo-midnight">₹5.80</span></div>
+                  <div class="flex justify-between items-center"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-saffron-glow"></span><span class="text-indigo-midnight font-medium">Invoice OCR (Maal Aaya)</span></div><span class="font-bold text-indigo-midnight">₹4.80</span></div>
+                  <div class="flex justify-between items-center"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-slate-500"></span><span class="text-indigo-midnight font-medium">Morning briefing &amp; cache</span></div><span class="font-bold text-indigo-midnight">₹3.50</span></div>
+                  <div class="flex justify-between items-center"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-emerald-400"></span><span class="text-indigo-midnight font-medium">Cloud DB &amp; infrastructure</span></div><span class="font-bold text-indigo-midnight">₹6.72</span></div>
+                </div>
+              </div>
+
+              <!-- Right: Tiers and Projections -->
+              <div class="lg:col-span-7 flex flex-col gap-4">
+                
+                <!-- Tiers -->
+                <div class="bg-emerald-surface/30 rounded-2xl border-2 border-emerald-credit p-5 flex flex-col gap-4">
+                  <div>
+                    <h3 class="font-bold text-indigo-midnight text-sm">How voice stays cheap: three tiers</h3>
+                    <p class="text-xs text-on-surface-variant">Proposed design; ≈₹0.023 per voice transaction, ~45 transactions a day</p>
+                  </div>
+                  
+                  <div class="flex flex-col sm:flex-row items-stretch gap-2 mt-2 relative">
+                    <div class="flex-1 bg-indigo-midnight text-white p-3 rounded-xl flex flex-col justify-center items-center text-center text-[10px] font-medium leading-snug">
+                      <span class="font-bold text-sm mb-1">Shopkeeper</span>
+                      speaks, about 45<br>times a day
+                    </div>
+                    <div class="hidden sm:flex items-center justify-center text-emerald-credit">
+                      <span class="material-symbols-outlined text-xl">arrow_right_alt</span>
+                    </div>
+                    <div class="flex-1 bg-emerald-credit text-white p-3 rounded-xl flex flex-col justify-center items-center text-center text-[10px] font-medium leading-snug shadow-md shadow-emerald-credit/20">
+                      <span class="font-bold text-sm mb-1">Tier 1</span>
+                      Gemini audio +<br>Flash understands<br>the request (target<br>&lt;400 ms)
+                    </div>
+                    <div class="hidden sm:flex items-center justify-center text-emerald-credit">
+                      <span class="material-symbols-outlined text-xl">arrow_right_alt</span>
+                    </div>
+                    <div class="flex-1 bg-emerald-surface border border-emerald-credit/60 text-indigo-midnight p-3 rounded-xl flex flex-col justify-center items-center text-center text-[10px] font-medium leading-snug">
+                      <span class="font-bold text-sm mb-1 text-emerald-700">Tier 2</span>
+                      Local RapidFuzz<br>matches products,<br>no AI call
+                    </div>
+                    <div class="hidden sm:flex items-center justify-center text-emerald-credit">
+                      <span class="material-symbols-outlined text-xl">arrow_right_alt</span>
+                    </div>
+                    <div class="flex-1 bg-emerald-surface border border-emerald-credit/60 text-indigo-midnight p-3 rounded-xl flex flex-col justify-center items-center text-center text-[10px] font-medium leading-snug">
+                      <span class="font-bold text-sm mb-1 text-emerald-700">Tier 3</span>
+                      Self-healing offline<br>SQLite keeps billing<br>running
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Projections -->
+                <div class="bg-card-pure rounded-2xl border-2 border-indigo-midnight p-5 flex flex-col sm:flex-row gap-6 justify-between items-center">
+                  <div class="flex-1 w-full flex flex-col gap-4">
+                    <div>
+                      <h3 class="font-bold text-indigo-midnight text-sm">Projected AI cost per shop per month (₹)</h3>
+                      <p class="text-xs text-on-surface-variant">Falls as the model moves closer to the device</p>
+                    </div>
+                    
+                    <div class="flex items-end gap-6 h-32 pl-6 relative border-b border-border-subtle mt-2 w-full max-w-sm">
+                      <!-- Y-Axis labels -->
+                      <div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-[9px] text-on-surface-variant font-mono">
+                        <span>70-</span><span>60-</span><span>50-</span><span>40-</span><span>30-</span><span>20-</span><span>10-</span><span>0-</span>
+                      </div>
+                      
+                      <!-- Bars -->
+                      <div class="flex-1 flex flex-col items-center justify-end h-full">
+                        <span class="text-xs font-bold text-indigo-midnight mb-1">52</span>
+                        <div class="w-full max-w-[40px] bg-indigo-midnight" style="height: calc((52/70)*100%);"></div>
+                      </div>
+                      <div class="flex-1 flex flex-col items-center justify-end h-full">
+                        <span class="text-xs font-bold text-indigo-midnight mb-1">34</span>
+                        <div class="w-full max-w-[40px] bg-emerald-credit" style="height: calc((34/70)*100%);"></div>
+                      </div>
+                      <div class="flex-1 flex flex-col items-center justify-end h-full">
+                        <span class="text-xs font-bold text-indigo-midnight mb-1">22</span>
+                        <div class="w-full max-w-[40px] bg-emerald-credit" style="height: calc((22/70)*100%);"></div>
+                      </div>
+                    </div>
+                    <div class="flex justify-between w-full max-w-sm text-[9px] text-on-surface-variant text-center px-4">
+                      <span class="flex-1">2026: Gemini cloud API</span>
+                      <span class="flex-1">2027: distilled hybrid API</span>
+                      <span class="flex-1">2028: on-device local SLM</span>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-saffron-subtle border-2 border-dashed border-saffron-glow/60 p-4 rounded-xl flex flex-col items-center text-center justify-center shrink-0 w-40">
+                    <span class="font-headline-lg font-bold text-2xl text-indigo-midnight">-57.7%</span>
+                    <span class="text-[11px] text-on-surface-variant font-medium mt-1">projected AI cost by<br>2028</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="flex items-center gap-1.5 bg-emerald-surface text-tertiary px-3 py-1 rounded-full font-bold text-xs border border-tertiary/20">
-              <span class="material-symbols-outlined text-sm">check_circle</span>
-              <span>66.6% SaaS Contribution Margin</span>
-            </div>
+            
+            <p class="text-[9px] text-on-surface-variant mt-1">Planning estimates, not measured results. The 2027 and 2028 figures are projections that depend on model quality and on-device performance.</p>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-card-pure p-4 rounded-2xl border border-border-subtle shadow-xs">
-              <span class="text-[10px] uppercase font-bold text-on-surface-variant font-label-caps">Subscription Fee</span>
-              <div class="font-headline-lg font-bold text-2xl text-indigo-midnight mt-1">₹299<span class="text-xs font-normal text-on-surface-variant">/mo</span></div>
-              <p class="text-[11px] text-on-surface-variant mt-2">&lt;1% of monthly net recovery.</p>
+
+          <!-- PART 2: HARDWARE & SCALING -->
+          <div class="flex flex-col gap-5 pt-4">
+            <h2 class="font-headline-lg font-bold text-2xl sm:text-3xl text-indigo-midnight tracking-tight">
+              Zero hardware cost, and cheaper to serve with every shop we add.
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <!-- Left: Scaling Costs -->
+              <div class="bg-card-pure rounded-2xl border-2 border-indigo-midnight p-5 flex flex-col gap-4">
+                <div>
+                  <h3 class="font-bold text-indigo-midnight text-sm">Cost to serve one shop falls as we grow</h3>
+                  <p class="text-xs text-on-surface-variant">Variable cost per shop per month (₹), with contribution margin below</p>
+                </div>
+                
+                <div class="flex items-end justify-around h-40 pl-8 relative border-b border-border-subtle mt-4">
+                  <!-- Y-Axis -->
+                  <div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-[9px] text-on-surface-variant font-mono">
+                    <span>200-</span><span>150-</span><span>100-</span><span>50-</span><span>0-</span>
+                  </div>
+                  
+                  <!-- Bars -->
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">165</span>
+                    <div class="w-full bg-emerald-credit" style="height: calc((165/200)*100%);"></div>
+                  </div>
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">119</span>
+                    <div class="w-full bg-emerald-credit" style="height: calc((119/200)*100%);"></div>
+                  </div>
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">98</span>
+                    <div class="w-full bg-emerald-credit" style="height: calc((98/200)*100%);"></div>
+                  </div>
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">59</span>
+                    <div class="w-full bg-emerald-credit" style="height: calc((59/200)*100%);"></div>
+                  </div>
+                </div>
+                <div class="flex justify-around text-center text-[10px]">
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-medium">50 shops</span>
+                    <span class="text-on-surface-variant">44.8% margin</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-medium">1,000 shops</span>
+                    <span class="text-on-surface-variant">60.2% margin</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-medium">5,000 shops</span>
+                    <span class="text-on-surface-variant">67.2% margin</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-medium">100,000 shops</span>
+                    <span class="text-on-surface-variant">80.3% margin</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Comparison -->
+              <div class="bg-card-pure rounded-2xl border-2 border-indigo-midnight p-5 flex flex-col gap-4">
+                <div>
+                  <h3 class="font-bold text-indigo-midnight text-sm">What the shopkeeper pays today vs Saarthi</h3>
+                  <p class="text-xs text-on-surface-variant">Monthly cost per shop (₹), with upfront hardware cost below</p>
+                </div>
+                
+                <div class="flex items-end justify-around h-40 pl-8 relative border-b border-border-subtle mt-4">
+                  <!-- Y-Axis -->
+                  <div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-[9px] text-on-surface-variant font-mono">
+                    <span>1600-</span><span>1400-</span><span>1200-</span><span>1000-</span><span>800-</span><span>600-</span><span>400-</span><span>200-</span><span>0-</span>
+                  </div>
+                  
+                  <!-- Bars -->
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">50</span>
+                    <div class="w-full bg-slate-500" style="height: calc((50/1600)*100%);"></div>
+                  </div>
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">425</span>
+                    <div class="w-full bg-slate-500" style="height: calc((425/1600)*100%);"></div>
+                  </div>
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">1300</span>
+                    <div class="w-full bg-slate-500" style="height: calc((1300/1600)*100%);"></div>
+                  </div>
+                  <div class="flex flex-col items-center justify-end h-full w-12">
+                    <span class="text-xs font-bold text-indigo-midnight mb-1">299</span>
+                    <div class="w-full bg-emerald-credit shadow-md shadow-emerald-credit/20" style="height: calc((299/1600)*100%);"></div>
+                  </div>
+                </div>
+                <div class="flex justify-around text-center text-[10px]">
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-medium">Paper khata</span>
+                    <span class="text-on-surface-variant">₹0 upfront</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-medium">Desktop POS</span>
+                    <span class="text-on-surface-variant">₹25,000 upfront</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-medium">Cloud POS</span>
+                    <span class="text-on-surface-variant">₹18,500 upfront</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-indigo-midnight font-bold">Vyapar Saarthi</span>
+                    <span class="text-on-surface-variant">₹0 upfront</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="bg-card-pure p-4 rounded-2xl border border-border-subtle shadow-xs">
-              <span class="text-[10px] uppercase font-bold text-on-surface-variant font-label-caps">Cloud COGS</span>
-              <div class="font-headline-lg font-bold text-2xl text-indigo-depth mt-1">~₹100<span class="text-xs font-normal text-on-surface-variant">/mo</span></div>
-              <p class="text-[11px] text-on-surface-variant mt-2">Whisper Edge + DB + WhatsApp.</p>
+            
+            <!-- Bottom Economics Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-2">
+              <div class="bg-card-pure rounded-2xl border-2 border-emerald-credit p-4 flex flex-col gap-3">
+                <span class="text-[10px] uppercase font-bold text-emerald-700 font-label-caps">OUR UNIT ECONOMICS AT 5,000 SHOPS</span>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="bg-indigo-midnight text-white px-4 py-3 rounded-xl flex flex-col items-center text-center flex-1">
+                    <span class="font-bold text-2xl font-headline-lg">₹299</span>
+                    <span class="text-[10px] opacity-90 leading-tight mt-0.5">price per shop /<br>month</span>
+                  </div>
+                  <span class="font-bold text-2xl text-indigo-midnight shrink-0">-</span>
+                  <div class="bg-saffron-subtle border border-saffron-glow/30 text-indigo-midnight px-4 py-3 rounded-xl flex flex-col items-center text-center flex-1">
+                    <span class="font-bold text-2xl font-headline-lg">₹98</span>
+                    <span class="text-[10px] text-on-surface-variant leading-tight mt-0.5"><br>variable cost</span>
+                  </div>
+                  <span class="font-bold text-2xl text-indigo-midnight shrink-0">=</span>
+                  <div class="bg-emerald-credit text-white px-4 py-3 rounded-xl flex flex-col items-center text-center flex-1 shadow-md shadow-emerald-credit/20">
+                    <span class="font-bold text-2xl font-headline-lg">₹201</span>
+                    <span class="text-[10px] opacity-90 leading-tight mt-0.5">contribution, 67.2%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-card-pure rounded-2xl border-2 border-dashed border-saffron-glow/60 p-4 flex flex-col gap-3">
+                <span class="text-[10px] uppercase font-bold text-indigo-midnight font-label-caps">SHOPKEEPER'S RETURN: AN ASSUMPTION TO VALIDATE</span>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="bg-indigo-midnight text-white px-4 py-3 rounded-xl flex flex-col items-center text-center flex-1">
+                    <span class="font-bold text-2xl font-headline-lg">₹299</span>
+                    <span class="text-[10px] opacity-90 leading-tight mt-0.5"><br>pays per month</span>
+                  </div>
+                  <span class="text-saffron-primary material-symbols-outlined text-xl shrink-0">arrow_right_alt</span>
+                  <div class="bg-white border-2 border-saffron-subtle text-indigo-midnight px-4 py-3 rounded-xl flex flex-col items-center text-center flex-1">
+                    <span class="font-bold text-2xl font-headline-lg">+₹3,705*</span>
+                    <span class="text-[10px] text-on-surface-variant leading-tight mt-0.5">assumed cash<br>impact / month</span>
+                  </div>
+                  <span class="text-saffron-primary material-symbols-outlined text-xl shrink-0">arrow_right_alt</span>
+                  <div class="bg-saffron-subtle text-indigo-midnight px-4 py-3 rounded-xl flex flex-col items-center text-center flex-1">
+                    <span class="font-bold text-2xl font-headline-lg">12.4x*</span>
+                    <span class="text-[10px] text-on-surface-variant leading-tight mt-0.5"><br>assumed return</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="bg-card-pure p-4 rounded-2xl border border-border-subtle shadow-xs">
-              <span class="text-[10px] uppercase font-bold text-on-surface-variant font-label-caps">Contribution Margin</span>
-              <div class="font-headline-lg font-bold text-2xl text-emerald-credit mt-1">₹199<span class="text-xs font-normal text-on-surface-variant">/store</span></div>
-              <p class="text-[11px] text-on-surface-variant mt-2">66.6% Gross Margin from Day 1.</p>
-            </div>
-            <div class="bg-card-pure p-4 rounded-2xl border border-border-subtle shadow-xs">
-              <span class="text-[10px] uppercase font-bold text-on-surface-variant font-label-caps">Payback Velocity</span>
-              <div class="font-headline-lg font-bold text-2xl text-saffron-primary mt-1">2.5–5 <span class="text-xs font-normal text-on-surface-variant">Mo</span></div>
-              <p class="text-[11px] text-on-surface-variant mt-2">Low cluster CAC via Mandi referrals.</p>
-            </div>
+            
           </div>
         </div>
       </section>
